@@ -1,4 +1,4 @@
 package com.tianjun;
 
-public class Frame {
+public class TCPSever {
 }
