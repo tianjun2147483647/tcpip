@@ -6,22 +6,26 @@ import java.awt.*;
 public class FrameServer {
     public FrameServer() {
         //config
-        JFrame frameServer=new JFrame("服务器端");
-        frameServer.setBounds(200,0,400,300);
+        JFrame frameServer=new JFrame("服务端");
+        frameServer.setSize(500,400);
         frameServer.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frameServer.setVisible(true);
+        frameServer.setBackground(Color.white);
+        frameServer.setResizable(false);
 
         //context
+        JTextField labelOUT = new JTextField();
+        labelOUT.setText("与客户端交互记录:");
+        labelOUT.setEditable(false);
+        labelOUT.setBounds(0,0,105,20);
         JTextArea out= new JTextArea(100,1);
-        out.setText("与客户端交互记录:");
+        out.setBounds(0,20,480,340);
         out.setEditable(false);
-        JTextArea in = new JTextArea();
-        in.setText("");
         JScrollPane outSP = new JScrollPane(out);
 
         Container CS=frameServer.getContentPane();
-        CS.add(outSP);
+        CS.add(labelOUT);
         CS.add(out);
-
+        CS.add(outSP);
     }
 }
