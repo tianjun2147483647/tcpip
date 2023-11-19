@@ -3,6 +3,7 @@ package com.tianjun;
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
+import java.io.IOException;
 
 public class FrameClient {
     public FrameClient() {
@@ -35,11 +36,19 @@ public class FrameClient {
         JButton send = new JButton("发送");
         send.setUI(new BasicButtonUI());
         send.setBounds(130,330,60,30);
-//        send.addActionListener(e -> );
+        send.addActionListener(e -> {
+            try {
+                new TCPClient(in.getText());
+                out.append(in.getText()+"\n");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
         JButton clear = new JButton("清空");
         clear.setUI(new BasicButtonUI());
         clear.setBounds(250,330,60,30);
-//        clear.addActionListener(e -> );
+        clear.addActionListener(e -> in.setText(""));
 
         //init
         Container CC=frameClient.getContentPane();

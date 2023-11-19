@@ -2,6 +2,7 @@ package com.tianjun;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class FrameServer {
     public FrameServer() {
@@ -23,9 +24,20 @@ public class FrameServer {
         out.setEditable(false);
         JScrollPane outSP = new JScrollPane(out);
 
+
+
         Container CS=frameServer.getContentPane();
         CS.add(labelOUT);
         CS.add(out);
         CS.add(outSP);
+
+        //tcp
+        try {
+            new TCPSever(out);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }
