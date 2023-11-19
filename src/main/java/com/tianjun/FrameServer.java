@@ -24,8 +24,6 @@ public class FrameServer {
         out.setEditable(false);
         JScrollPane outSP = new JScrollPane(out);
 
-
-
         Container CS=frameServer.getContentPane();
         CS.add(labelOUT);
         CS.add(out);
@@ -37,7 +35,5 @@ public class FrameServer {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
